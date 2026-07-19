@@ -104,6 +104,13 @@ object Notifications {
     const val ID_EXTENSION_INSTALLER = -402
     const val ID_EXTENSION_PROGRESS = -403
 
+    /**
+     * Notification channel and ids used for transcription model downloads.
+     */
+    const val CHANNEL_TRANSCRIPTION_MODEL = "transcription_model_channel"
+    const val ID_TRANSCRIPTION_MODEL_PROGRESS = -1801
+    const val ID_TRANSCRIPTION_MODEL_ERROR = -1802
+
     private val deprecatedChannels = listOf(
         "downloader_channel",
         "downloader_complete_channel",
@@ -203,6 +210,10 @@ object Notifications {
                 buildNotificationChannel(CHANNEL_EXTENSIONS_UPDATE, IMPORTANCE_DEFAULT) {
                     setGroup(GROUP_APK_UPDATES)
                     setName(context.stringResource(MR.strings.channel_ext_updates))
+                },
+                buildNotificationChannel(CHANNEL_TRANSCRIPTION_MODEL, IMPORTANCE_LOW) {
+                    setName("Transcription models")
+                    setShowBadge(false)
                 },
             ),
         )

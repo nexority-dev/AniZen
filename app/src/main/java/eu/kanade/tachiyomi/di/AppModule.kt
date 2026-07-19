@@ -16,6 +16,7 @@ import eu.kanade.tachiyomi.data.download.DownloadCache
 import eu.kanade.tachiyomi.data.download.DownloadManager
 import eu.kanade.tachiyomi.data.download.DownloadProvider
 import eu.kanade.tachiyomi.data.saver.ImageSaver
+import eu.kanade.tachiyomi.data.subtitle.TranscriptionModelManager
 import eu.kanade.tachiyomi.data.sync.service.GoogleDriveService
 import eu.kanade.tachiyomi.data.track.TrackerManager
 import eu.kanade.tachiyomi.extension.ExtensionManager
@@ -163,6 +164,8 @@ class AppModule(val app: Application) : InjektModule {
         addSingletonFactory { ExternalIntents() }
 
         addSingletonFactory { Anime4KManager(app) }
+
+        addSingletonFactory { TranscriptionModelManager(app) }
 
         // AM (CONNECTIONS) -->
         addSingletonFactory { ConnectionsManager() }
